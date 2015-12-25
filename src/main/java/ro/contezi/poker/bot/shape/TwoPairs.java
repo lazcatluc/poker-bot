@@ -26,7 +26,8 @@ public class TwoPairs implements Shape {
 				new Pair().applies(Arrays.asList(handToProcess.get(1), handToProcess.get(2)))) {
 			return true;
 		}
-		return false;
+		handToProcess.remove(0);
+		return applies(handToProcess);
 	}
 
 }
