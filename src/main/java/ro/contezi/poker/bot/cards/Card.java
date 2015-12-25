@@ -7,7 +7,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
-public final class Card {
+public final class Card implements Comparable<Card> {
 	
 	private final Rank rank;
 	private final Suit suit;
@@ -47,5 +47,14 @@ public final class Card {
 
 	public Rank getRank() {
 		return rank;
+	}
+
+	@Override
+	public int compareTo(Card o) {
+		int rankCompare = rank.compareTo(o.rank);
+		if (rankCompare == 0) {
+			return suit.compareTo(o.suit);
+		}
+		return rankCompare;
 	}
 }

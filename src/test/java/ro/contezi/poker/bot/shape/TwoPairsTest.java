@@ -31,4 +31,11 @@ public class TwoPairsTest {
 				Card.get(Suit.DIAMOND, Rank.EIGHT), Card.get(Suit.HEART, Rank.ACE), Card.get(Suit.CLUB, Rank.EIGHT))))
 						.isTrue();
 	}
+
+	@Test
+	public void hasTwoPairsWhenHavingTwoNonConsecutivePairsNotInFirstPlaceAndNotInLastPlace() {
+		assertThat(new TwoPairs().applies(Arrays.asList(Card.get(Suit.SPADE, Rank.ACE),
+				Card.get(Suit.DIAMOND, Rank.EIGHT), Card.get(Suit.SPADE, Rank.JACK), Card.get(Suit.HEART, Rank.ACE),
+				Card.get(Suit.CLUB, Rank.EIGHT)))).isTrue();
+	}
 }

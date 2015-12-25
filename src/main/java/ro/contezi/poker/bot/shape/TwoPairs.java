@@ -1,8 +1,8 @@
 package ro.contezi.poker.bot.shape;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import ro.contezi.poker.bot.cards.Card;
@@ -15,19 +15,18 @@ public class TwoPairs implements Shape {
 			return false;
 		}
 		List<Card> handToProcess = new ArrayList<>(hand);
+		Collections.sort(handToProcess);
 		if (new Pair().applies(handToProcess.subList(0, 2)) && new Pair().applies(handToProcess.subList(2, 4))) {
 			return true;
 		};
-		if (new Pair().applies(Arrays.asList(handToProcess.get(0), handToProcess.get(2))) &&
-				new Pair().applies(Arrays.asList(handToProcess.get(1), handToProcess.get(3)))) {
-			return true;
+		for (int i = 0; i < hand.size(); i++) {
+			handToProcess = new ArrayList<>(hand);
+			handToProcess.remove(i);
+			if (applies(handToProcess)) {
+				return true;
+			}
 		}
-		if (new Pair().applies(Arrays.asList(handToProcess.get(0), handToProcess.get(3))) &&
-				new Pair().applies(Arrays.asList(handToProcess.get(1), handToProcess.get(2)))) {
-			return true;
-		}
-		handToProcess.remove(0);
-		return applies(handToProcess);
+		return false;
 	}
 
 }
