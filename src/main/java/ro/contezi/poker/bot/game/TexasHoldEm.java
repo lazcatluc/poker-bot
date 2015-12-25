@@ -10,15 +10,19 @@ import ro.contezi.poker.bot.scorer.Scorer;
 import ro.contezi.poker.bot.simulator.Combinator;
 
 public class TexasHoldEm {
+	
+	public static final int COMMUNITY_CARDS = 5;
+	public static final int PLAYER_CARDS = 2;
+	
 	private final List<List<Card>> playerCards;
 	private final List<Card> communityCards;
 	
 	private TexasHoldEm(int players) {
 		playerCards = new ArrayList<>(players);
 		for (int i = 0; i < players; i++) {
-			playerCards.add(new ArrayList<>(2));
+			playerCards.add(new ArrayList<>(PLAYER_CARDS));
 		}
-		communityCards = new ArrayList<>(5);
+		communityCards = new ArrayList<>(COMMUNITY_CARDS);
 	}
 	
 	public Result getResult() {
@@ -39,13 +43,18 @@ public class TexasHoldEm {
 		List<Card> playerPlusCommunity = new ArrayList<>();
 		playerPlusCommunity.addAll(playerHand);
 		playerPlusCommunity.addAll(communityCards);
-		List<List<Card>> combinationsOf5 = Combinator.combinations(playerPlusCommunity, 5);
+		List<List<Card>> combinationsOf5 = Combinator.combinations(playerPlusCommunity, COMMUNITY_CARDS);
 		Collections.sort(combinationsOf5, new Scorer());
 		return combinationsOf5.get(0);
 	}
 	
 	public TexasHoldEm withCommunity(Card... cards) {
 		communityCards.addAll(Arrays.asList(cards));
+		return this;
+	}
+
+	public TexasHoldEm withCommunity(List<Card> cards) {
+		communityCards.addAll(cards);
 		return this;
 	}
 	
@@ -70,5 +79,11 @@ public class TexasHoldEm {
 			hand.addAll(Arrays.asList(cards));
 			return TexasHoldEm.this;
 		}
+
+		public TexasHoldEm holding(List<Card> current) {
+			hand.addAll(current);
+			return TexasHoldEm.this;
+		}
 	}
+
 }

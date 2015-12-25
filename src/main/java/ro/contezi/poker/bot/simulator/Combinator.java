@@ -40,4 +40,8 @@ public class Combinator {
 		
 		return ret;
 	}
+
+	public List<Card> getDeck() {
+		return Collections.unmodifiableList(deck);
+	}
 }

@@ -17,4 +17,13 @@ public class Result {
 		return winners[playerPlusOne - 1];
 	}
 
+	public int getTotalWinners() {
+		int totalWinners = 0;
+		for (boolean winner : winners) {
+			if (winner) {
+				totalWinners++;
+			}
+		}
+		return totalWinners;
+	}
 }
