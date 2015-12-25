@@ -16,7 +16,7 @@ public class Pair implements Shape {
 		List<Card> handToProcess = new ArrayList<>(hand);
 		Card first = handToProcess.get(0);
 		handToProcess.remove(first);
-		return handToProcess.stream().anyMatch(card -> card.equals(first));
+		return handToProcess.stream().anyMatch(card -> card.getRank().equals(first.getRank())) || applies(handToProcess);
 	}
 
 }

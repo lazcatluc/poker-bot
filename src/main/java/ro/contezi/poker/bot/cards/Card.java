@@ -44,4 +44,8 @@ public final class Card {
 		Collections.shuffle(deck);
 		return deck;
 	}
+
+	public Rank getRank() {
+		return rank;
+	}
 }
