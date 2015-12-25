@@ -32,7 +32,11 @@ public class Scorer implements Comparator<Collection<Card>> {
 		while (!shapes.get(pos2).matches(o2)) {
 			pos2++;
 		}
-		return pos1 - pos2;
+		int diff = pos1 - pos2;
+		if (diff != 0) {
+			return diff;
+		};
+		return new HighCardScorer().compare(o1, o2);
 	}
 
 }
