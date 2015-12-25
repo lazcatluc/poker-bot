@@ -19,7 +19,7 @@ public class Combinator {
 		return combinations(deck, cards);
 	}
 	
-	private static List<List<Card>> combinations(List<Card> from, int cards) {
+	public static List<List<Card>> combinations(List<Card> from, int cards) {
 		if (from.size() < cards) {
 			return Collections.emptyList();
 		}
