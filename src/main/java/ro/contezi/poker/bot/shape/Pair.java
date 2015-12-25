@@ -1,6 +1,8 @@
 package ro.contezi.poker.bot.shape;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import ro.contezi.poker.bot.cards.Card;
 
@@ -11,7 +13,8 @@ public class Pair implements Shape {
 		if (hand.size() < 2) {
 			return false;
 		}
-		return true;
+		List<Card> handToProcess = new ArrayList<>(hand);
+		return handToProcess.get(0).equals(handToProcess.get(1));
 	}
 
 }

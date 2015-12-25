@@ -14,7 +14,13 @@ public class PairTest {
 
 	@Test
 	public void appliesToTwoEqualCards() {
-		assertThat(new Pair().applies(Arrays.asList(Card.get(Suit.CLUB, Rank.ACE), Card.get(Suit.CLUB, Rank.ACE)))).isTrue();
+		assertThat(new Pair().applies(Arrays.asList(Card.get(Suit.CLUB, Rank.ACE), Card.get(Suit.CLUB, Rank.ACE))))
+				.isTrue();
 	}
 
+	@Test
+	public void doesNotApplyToTwoUnequalCards() throws Exception {
+		assertThat(new Pair().applies(Arrays.asList(Card.get(Suit.CLUB, Rank.ACE), Card.get(Suit.CLUB, Rank.KING))))
+				.isFalse();
+	}
 }
