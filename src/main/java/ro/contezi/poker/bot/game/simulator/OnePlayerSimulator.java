@@ -1,4 +1,4 @@
-package ro.contezi.poker.bot.simulator;
+package ro.contezi.poker.bot.game.simulator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import ro.contezi.poker.bot.cards.Card;
+import ro.contezi.poker.bot.simulator.Combinator;
 
 public class OnePlayerSimulator {
 	private final List<Card> current;

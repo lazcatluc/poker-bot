@@ -1,4 +1,4 @@
-package ro.contezi.poker.bot.simulator;
+package ro.contezi.poker.bot.game.simulator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
@@ -10,9 +10,10 @@ import org.junit.Test;
 import ro.contezi.poker.bot.cards.Card;
 import ro.contezi.poker.bot.cards.Rank;
 import ro.contezi.poker.bot.cards.Suit;
+import ro.contezi.poker.bot.game.simulator.OnePlayerSimulator;
 import ro.contezi.poker.bot.shape.FourOfAKind;
 
-public class SimulatorTest {
+public class OnePlayerSimulatorTest {
 
 	/**
 	 * http://www.texasholdem-poker.com/calculator?card1=14&card2=14&chance_format=percentage&decimals=9
