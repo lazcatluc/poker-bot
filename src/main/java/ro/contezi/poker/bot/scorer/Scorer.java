@@ -21,6 +21,8 @@ public class Scorer implements Comparator<Collection<Card>> {
 
 	private final List<Shape> shapes = Arrays.asList(new StraightFlush(), new FourOfAKind(), new FullHouse(),
 			new Flush(), new Straight(), new ThreeOfAKind(), new TwoPairs(), new Pair(), new HighCard());
+	private final List<Comparator<Collection<Card>>> tieBreakers = Arrays.asList(new HighCardScorer(), new PairScorer(), new HighCardScorer(),
+			new HighCardScorer(), new HighCardScorer(), new PairScorer(), new TwoPairScorer(), new PairScorer(), new HighCardScorer());
 
 	@Override
 	public int compare(Collection<Card> o1, Collection<Card> o2) {
@@ -36,7 +38,7 @@ public class Scorer implements Comparator<Collection<Card>> {
 		if (diff != 0) {
 			return diff;
 		};
-		return new HighCardScorer().compare(o1, o2);
+		return tieBreakers.get(pos1).compare(o1, o2);
 	}
 
 }
