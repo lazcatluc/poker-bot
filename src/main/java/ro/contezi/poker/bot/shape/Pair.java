@@ -14,7 +14,9 @@ public class Pair implements Shape {
 			return false;
 		}
 		List<Card> handToProcess = new ArrayList<>(hand);
-		return handToProcess.get(0).equals(handToProcess.get(1));
+		Card first = handToProcess.get(0);
+		handToProcess.remove(first);
+		return handToProcess.stream().anyMatch(card -> card.equals(first));
 	}
 
 }

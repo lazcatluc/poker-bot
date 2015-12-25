@@ -23,4 +23,10 @@ public class PairTest {
 		assertThat(new Pair().applies(Arrays.asList(Card.get(Suit.CLUB, Rank.ACE), Card.get(Suit.CLUB, Rank.KING))))
 				.isFalse();
 	}
+
+	@Test
+	public void appliesToThreeCardsWhenOneAndThreeAreEqual() throws Exception {
+		assertThat(new Pair().applies(Arrays.asList(Card.get(Suit.CLUB, Rank.ACE), Card.get(Suit.DIAMOND, Rank.KING),
+				Card.get(Suit.CLUB, Rank.ACE)))).isTrue();
+	}
 }
