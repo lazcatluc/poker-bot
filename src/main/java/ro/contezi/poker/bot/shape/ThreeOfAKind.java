@@ -7,22 +7,17 @@ import java.util.List;
 
 import ro.contezi.poker.bot.cards.Card;
 
-public class TwoPairs implements Shape {
+public class ThreeOfAKind implements Shape {
 
 	@Override
 	public boolean applies(Collection<Card> hand) {
-		if (hand.size() < 4) {
+		if (hand.size() < 3) {
 			return false;
 		}
 		List<Card> handToProcess = new ArrayList<>(hand);
 		Collections.sort(handToProcess);
-		if (new Pair().applies(handToProcess.subList(0, 2)) && new Pair().applies(handToProcess.subList(2, 4))) {
-			return true;
-		}
-		for (int i = 0; i < hand.size(); i++) {
-			handToProcess = new ArrayList<>(hand);
-			handToProcess.remove(i);
-			if (applies(handToProcess)) {
+		for (int i = 0; i < hand.size() - 2; i++) {
+			if (new Pair().applies(handToProcess.subList(i, i + 2)) && new Pair().applies(handToProcess.subList(i + 1, i + 3))) {
 				return true;
 			}
 		}
