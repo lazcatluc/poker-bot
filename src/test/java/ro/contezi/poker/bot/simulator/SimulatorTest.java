@@ -19,7 +19,7 @@ public class SimulatorTest {
 	 */
 	@Test
 	public void fourOfAKindOnTheFlopFromTwoAces() {
-		Simulator simulator = new Simulator.Builder()
+		OnePlayerSimulator simulator = new OnePlayerSimulator.Builder()
 				.holding(Card.get(Suit.SPADE, Rank.ACE), Card.get(Suit.DIAMOND, Rank.ACE)).simulating(3).build();
 		
 		List<List<Card>> allResults = simulator.getPossibleResults();
