@@ -7,7 +7,7 @@ import ro.contezi.poker.bot.cards.Card;
 public class HighCard implements Shape {
 
 	@Override
-	public boolean applies(Collection<Card> hand) {
+	public boolean matches(Collection<Card> hand) {
 		return true;
 	}
 

@@ -6,5 +6,5 @@ import ro.contezi.poker.bot.cards.Card;
 
 @FunctionalInterface
 public interface Shape {
-	boolean applies(Collection<Card> hand);
+	boolean matches(Collection<Card> hand);
 }

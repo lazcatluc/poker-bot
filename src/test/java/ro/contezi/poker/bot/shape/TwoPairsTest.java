@@ -14,27 +14,27 @@ public class TwoPairsTest {
 
 	@Test
 	public void hasTwoPairsWhenHavingTwoConsecutivePairs() {
-		assertThat(new TwoPairs().applies(Arrays.asList(Card.get(Suit.SPADE, Rank.ACE), Card.get(Suit.HEART, Rank.ACE),
+		assertThat(new TwoPairs().matches(Arrays.asList(Card.get(Suit.SPADE, Rank.ACE), Card.get(Suit.HEART, Rank.ACE),
 				Card.get(Suit.DIAMOND, Rank.EIGHT), Card.get(Suit.CLUB, Rank.EIGHT)))).isTrue();
 	}
 
 	@Test
 	public void hasTwoPairsWhenHavingTwoNonConsecutivePairs() {
-		assertThat(new TwoPairs().applies(Arrays.asList(Card.get(Suit.SPADE, Rank.ACE),
+		assertThat(new TwoPairs().matches(Arrays.asList(Card.get(Suit.SPADE, Rank.ACE),
 				Card.get(Suit.DIAMOND, Rank.EIGHT), Card.get(Suit.HEART, Rank.ACE), Card.get(Suit.CLUB, Rank.EIGHT))))
 						.isTrue();
 	}
 
 	@Test
 	public void hasTwoPairsWhenHavingTwoNonConsecutivePairsNotInFirstPlace() {
-		assertThat(new TwoPairs().applies(Arrays.asList(Card.get(Suit.SPADE, Rank.JACK), Card.get(Suit.SPADE, Rank.ACE),
+		assertThat(new TwoPairs().matches(Arrays.asList(Card.get(Suit.SPADE, Rank.JACK), Card.get(Suit.SPADE, Rank.ACE),
 				Card.get(Suit.DIAMOND, Rank.EIGHT), Card.get(Suit.HEART, Rank.ACE), Card.get(Suit.CLUB, Rank.EIGHT))))
 						.isTrue();
 	}
 
 	@Test
 	public void hasTwoPairsWhenHavingTwoNonConsecutivePairsNotInFirstPlaceAndNotInLastPlace() {
-		assertThat(new TwoPairs().applies(Arrays.asList(Card.get(Suit.SPADE, Rank.ACE),
+		assertThat(new TwoPairs().matches(Arrays.asList(Card.get(Suit.SPADE, Rank.ACE),
 				Card.get(Suit.DIAMOND, Rank.EIGHT), Card.get(Suit.SPADE, Rank.JACK), Card.get(Suit.HEART, Rank.ACE),
 				Card.get(Suit.CLUB, Rank.EIGHT)))).isTrue();
 	}
